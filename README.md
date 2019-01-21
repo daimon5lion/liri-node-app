@@ -1,6 +1,6 @@
 # liri-node-app
 
-## LIRI Bot for HW#10
+## LIRI Bot for HW#8
 
 ###Technologies used: Javascript, Node.js, Moment.js, Bandsintown API, Spotify API, OMDb API
 
