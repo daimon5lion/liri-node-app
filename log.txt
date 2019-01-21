@@ -42,3 +42,38 @@ Preview Link: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6
 Album: The Hits--Chapter One
 ------------------------------------------------------------
 
+Name of the venue: Westpoint
+
+Venue location: Clyst St Mary
+
+Date of the Event: 01/21/2019
+------------------------------------------------------------
+
+Name of the venue: Arena Birmingham
+
+Venue location: Birmingham
+
+Date of the Event: 01/23/2019
+------------------------------------------------------------
+
+Name of the venue: FlyDSA Arena
+
+Venue location: Sheffield
+
+Date of the Event: 01/25/2019
+------------------------------------------------------------
+
+Name of the venue: Manchester Arena
+
+Venue location: Manchester
+
+Date of the Event: 01/24/2019
+------------------------------------------------------------
+
+Name of the venue: Auditorio Telmex
+
+Venue location: Guadalajara
+
+Date of the Event: 03/20/2019
+------------------------------------------------------------
+
