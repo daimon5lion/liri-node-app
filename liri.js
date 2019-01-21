@@ -8,7 +8,6 @@ moment().format();
 
 var action = process.argv[2];
 var inputs = process.argv[3];
-//var spotify = new Spotify(keys.spotify);
 
 switch (action) {
   case "concert-this":
@@ -29,24 +28,37 @@ switch (action) {
 }
 
 function concert(inputs) {
+  var divider =
+    "\n------------------------------------------------------------\n\n";
   var queryUrl =
     "https://rest.bandsintown.com/artists/" +
     inputs +
     "/events?app_id=codingbootcamp";
 
   axios.get(queryUrl).then(function(response) {
-    for (var i = 0; i < response.data.length; i++) {
+    for (var i = 0; i < 5; i++) {
       var date = response.data[i].datetime;
       date = moment(date).format("MM/DD/YYYY");
       console.log("Name of the venue: " + response.data[i].venue.name);
       console.log("Venue location: " + response.data[i].venue.city);
       console.log("Date of the Event: " + date);
       console.log("----------------------------------------");
+
+      var showData = [
+        "Name of the venue: " + response.data[i].venue.name,
+        "Venue location: " + response.data[i].venue.city,
+        "Date of the Event: " + date
+      ].join("\n\n");
+      fs.appendFile("log.txt", showData + divider, function(err) {
+        if (err) throw err;
+      });
     }
   });
 }
 
 function spotify(inputs) {
+  var divider =
+    "\n------------------------------------------------------------\n\n";
   var spotify = new Spotify(keys.spotify);
   if (!inputs) {
     inputs = "The Sign";
@@ -62,10 +74,23 @@ function spotify(inputs) {
     console.log("Song Name: " + songInfo[0].name);
     console.log("Preview Link: " + songInfo[0].preview_url);
     console.log("Album: " + songInfo[0].album.name);
+
+    var showData = [
+      "Artist(s): " + songInfo[0].artists[0].name,
+      "Song Name: " + songInfo[0].name,
+      "Preview Link: " + songInfo[0].preview_url,
+      "Album: " + songInfo[0].album.name
+    ].join("\n\n");
+
+    fs.appendFile("log.txt", showData + divider, function(err) {
+      if (err) throw err;
+    });
   });
 }
 
 function movie(inputs) {
+  var divider =
+    "\n------------------------------------------------------------\n\n";
   if (!inputs) {
     inputs = "Mr. Nobody";
   }
@@ -86,8 +111,28 @@ function movie(inputs) {
     console.log("Language of the movie: " + response.data.Language);
     console.log("Plot of the movie: " + response.data.Plot);
     console.log("Actors in the movie: " + response.data.Actors);
-    console.log("ID: " + response.data.imdbID);
+    // console.log("ID: " + response.data.imdbID);
+
+    var showData = [
+      "Title of the movie: " + response.data.Title,
+      "Year the movie came out: " + response.data.Year,
+      "IMDB Rating of the movie: " + response.data.imdbRating,
+      "Rotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value,
+      "Country where the movie was produced: " + response.data.Country,
+      "Language of the movie: " + response.data.Language,
+      "Plot of the movie: " + response.data.Plot,
+      "Actors in the movie: " + response.data.Actors
+    ].join("\n\n");
+
+    fs.appendFile("log.txt", showData + divider, function(err) {
+      if (err) throw err;
+    });
   });
+
+  /*
+  
+
+  */
 }
 
 function doit() {
